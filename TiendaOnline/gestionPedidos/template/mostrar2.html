@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASE DE DATOS</title> <!--titulo de la pagina web-->
+
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    
+    {# Cargamos la librería #}
+   
+    <style>
+      thead{
+         background-color: black; color: white; 
+        
+      }
+
+      th{
+        
+         border: 2px solid black;
+        
+         
+      }
+      h1{
+         
+         text-align: center;
+         font-style: italic;
+         border: 3px solid  black;
+         background-color: #717A84;
+         color: white;
+         text-align: center;
+         width: 100%;
+      
+      }
+
+     
+
+
+      
+   td{
+      background-color: #C6BDE2 ;
+   }
+
+  
+
+
+
+    </style>
+</head>
+<body>
+   <!--Mostrando los datos en tabla cliente, area, empleado, venta-->
+
+   <div class="container">
+      <div class="row">
+         <div class="col-md-6">
+            <h1>Datos del cliente</h1>
+      </div>
+         <table class="table table-striped table-hover" >
+            <thead>
+               <tr>
+                  
+                  <th>Nombre</th>
+                  <th>Apellido</th>
+                  <th>Edad</th>
+                  <th>DUI</th>
+               </tr>
+            </thead>
+            <tbody>
+               <!--aqui se esta mandado a llamar los que pasamos por el diccionario de clave valor\ de esta forma con el bucle
+                  for 
+                  mandamos a llamar la clave de que le pusimos cliente y accedemos a los campos de esa tabla y mostrara 
+                  todo los datos al
+               -->
+               {% for cliente in cliente %}
+               <tr>
+                  <td>{{ cliente.nombre }}</td>
+                  <td>{{ cliente.apellido }}</td>
+                  <td>{{ cliente.edad }}</td>
+                  <td>{{ cliente.dui }}</td>
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+
+
+
+
+
+
+
+         <h1>Datos del area</h1>
+         <table class="table table-striped table-hover">
+            <thead>
+               <tr>
+                  
+                  <th>Nombre area</th>
+                  <th>Descripcion</th>
+                  
+               </tr>
+            </thead>
+            <tbody>
+               {% for area in area %}
+               <tr>
+                  <td>{{ area.nombre_del_area}}</td>
+                  <td>{{ area.descripcion }}</td>
+                  
+               </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+
+
+         </div>
+
+      <div class="row">
+         <div class="col-md-6">
+            
+
+
+<h1>Datos de empleado</h1>
+<table class="table table-striped table-hover">
+   <thead >
+      <tr>
+         
+         <th>Nombre </th>
+         <th>Apellido</th>
+         <th>Edad</th>
+         <th>areaId</th>
+         
+         
+      </tr>
+   </thead>
+   <tbody>
+      {% for empleado in empleado %}
+      <tr>
+         <td>{{ empleado.nombre}}</td>
+         <td>{{ empleado.apellido }}</td>
+         <td>{{ empleado.edad}}</td>
+         <td>{{ empleado.areaId }}</td>
+         
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+
+         </div>
+      </div>
+      </div>
+   </div>
+
+    
+
+
+
+
+<h1>Ventas realizadas</h1>
+<table class="table table-striped table-hover">
+   <thead >
+      <tr>
+         
+         <th width="10px">fecha venta </th>
+         <th width="10px">monto</th>
+         <th width="10px">nombre del cliente</th>
+         <th width="10px">nombre del empleado</th>
+         
+         
+      </tr>
+   </thead>
+   <tbody>
+      {% for venta in venta %}
+      <tr>
+         <td>{{ venta.fecha_venta}}</td>
+         <td>${{ venta.monto }}</td>
+         <td>{{ venta.clienteId}}</td>
+         <td>{{ venta.empleadoId }}</td>
+         
+      </tr>
+      {% endfor %}
+   </tbody>
+</table>
+
+</body>
+</html>

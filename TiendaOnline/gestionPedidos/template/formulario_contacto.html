@@ -1,0 +1,35 @@
+<html>
+<body>
+
+    <h1>Contactos</h1>
+
+    {% if form.errors %} 
+    <p style="color: red;">rellena este campo</p>
+    {%endif%}
+
+
+
+
+
+ 
+    <form action="" method="POST"> {%csrf_token%}
+
+        <table class="">
+            {{form.as_table}}<!--de esta forma se construye el formulario gracias al archivo forms.py-->
+        </table>
+
+        <button type="submit">enviar</button>
+    </form>
+
+    <style>
+        .form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: green;
+        }
+    </style>
+    
+</body>
+</html>

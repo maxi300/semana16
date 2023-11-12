@@ -1,0 +1,25 @@
+<html>
+    <title>contactar</title>
+<body>
+
+    <h1>contactanos</h1>
+
+   <!-- {% csrf_token %} lo que hace es que impide ataques a la web por secuestro-->
+    <form action="/contacto/" method="POST"> {% csrf_token %}
+        <p>Asunto: <input type="text" name="asunto"></p>
+
+        <p>Email: <input type="email" name="email"></p>
+
+        <p>Mensaje: <textarea type="text" name="mensaje" rows="15" cols="20"> </textarea></p>
+        
+
+        <input type="submit" value="Enviar">
+      
+    </form>
+
+
+
+
+        
+</body>
+</html>
